@@ -10,5 +10,5 @@ A plain-vanilla & lightweight theme for Elementor page builder.<br/>
 https://elementor.com/blog/introducing-hello-theme/
 
 # About Elementor page builder
-The World's Leading WordPress Page Builder (and DIVI can't make a peace with that fact).<br/>
+The World's Leading WordPress Page Builder (and DIVI can't sleep well any more by knowing that).<br/>
 https://elementor.com/
