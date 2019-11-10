@@ -1,0 +1,89 @@
+/*
+Theme Name: Hello Elementor Child
+Author: Dameer DJ
+Template: hello-elementor
+Version: 1.0.0
+Description: A plain-vanilla & lightweight theme for Elementor page builder. This is the child theme with a couple of new features.
+License: General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+/* comments */
+#comments .comment .comment-body, 
+#comments .pingback .comment-body {
+    padding: 2rem 0;
+    border-bottom: 1px dotted rgba(0,0,0,0.1);
+}
+#comments .comment-meta {
+    position: relative;
+    flex-direction: column-reverse;
+    margin-bottom: 1rem;
+}
+#comments .comment .fn, 
+#comments .pingback .fn {
+    font-size: 1.5rem;
+}
+#comments .comment .avatar, 
+#comments .pingback .avatar {
+    top: 0;
+    left: unset;
+    right: 0;
+    margin: 0;
+    border-radius: 2px;
+}
+#comments .comment-metadata, 
+#comments .reply, 
+#comments .logged-in-as {
+    font-size: 1rem;
+    margin: 0.2rem 0;
+}
+#comments .reply, 
+#comments .edit-link {
+    text-transform: uppercase;
+}
+#respond {
+    padding: 2rem 0;
+}
+#respond .comment-reply-title > small {
+    float: right;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+#respond .form-submit .elementor-button-link {
+    border: inherit;
+    font-weight: inherit;
+}
+#comments .children {
+    padding-left: 2rem;
+}
+@media (min-width: 768px) {
+    #comments .comment-author,
+    #comments .comment-metadata {
+      line-height: inherit; 
+    } 
+}
+  
+@media (max-width: 767px) {
+    #comments .comment .comment-body {
+      padding: 2rem 0; 
+    }
+    #comments .children {
+      padding-left: 2rem; 
+    }
+    #comments .comment .avatar {
+      position: absolute;
+      float: unset; 
+    }
+    body.rtl #comments .comment .avatar {
+        float: unset; 
+    } 
+}
+
+/* sidebar */
+div[data-widget_type*="sidebar."] {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+div[data-widget_type*="sidebar."] .widget .widget-title {
+    margin-top: 0;
+}
