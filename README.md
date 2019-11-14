@@ -1,5 +1,6 @@
 # Kariboo - Hello Elementor Child Theme
-My version of Hello Elementor child theme
+My version of Hello Elementor child theme.<br/>
+It brings a few improvements with regards to Comments, Sidebar support and Gutenberg editor...
 
 # How to use & install?
 This is Hello Elementor child theme which means you'll need to have parent theme installed before you can use it.<br/>
