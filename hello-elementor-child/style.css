@@ -8,6 +8,19 @@ License: General Public License v3 or later.
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 */
 
+/* general */
+body[class*="elementor-"] *:not(.menu-item):not(.elementor-tab-title):not(.elementor-image-box-title):not(.elementor-icon-box-title):not(.elementor-post__title):not(.elementor-heading-title) > a:not(:hover):not(:active):not(.elementor-item-active):not([role="button"]):not(.button):not(.elementor-button):not(.elementor-post__read-more):not(.elementor-post-info__terms-list-item), 
+body[class*="elementor-"] .elementor-tab-title.elementor-active, 
+body[class*="elementor-"] .elementor-post-info__terms-list-item, 
+body[class*="elementor-"] .elementor-post__title, 
+body[class*="elementor-"] .elementor-post__title a, 
+body[class*="elementor-"] .elementor-heading-title a, 
+body[class*="elementor-"] .elementor-post__read-more, 
+body[class*="elementor-"] .elementor-image-box-title a, 
+body[class*="elementor-"] .elementor-icon-box-title a {
+    transition: all 0.25s ease;
+}
+
 /* comments */
 #comments .comment .comment-body, 
 #comments .pingback .comment-body {
@@ -77,6 +90,14 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
     body.rtl #comments .comment .avatar {
         float: unset; 
     } 
+}
+
+/* pagination */
+.elementor-pagination {
+    margin-top: 6rem;
+}
+.elementor-pagination .page-numbers.current {
+    opacity: 0.5;
 }
 
 /* sidebar */

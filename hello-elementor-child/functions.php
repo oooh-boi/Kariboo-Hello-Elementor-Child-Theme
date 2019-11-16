@@ -24,7 +24,17 @@ add_action( 'after_setup_theme', 'kariboo_hec_languages' );
 function kariboo_hec_stylesheet() {
 	
     /* Parent Theme Stylesheet */
-    wp_enqueue_style( 'kariboo-hec', get_stylesheet_directory_uri(). '/style.css', array(), '10112019' );
+    $parent_style = 'hello-elementor';
+
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'kariboo-hec',
+        get_stylesheet_directory_uri() . '/style.css',
+        array( $parent_style ),
+        wp_get_theme()->get( 'Version' )
+	);
+	
+	/* inline style that are soming from Customizer */
+	wp_add_inline_style( 'kariboo-hec', kariboo_hec_apply_customizer_styles() );
 
     /* Gutenberg front-end */
 	wp_enqueue_style( 'kariboo-hec-gutenberg-front', get_stylesheet_directory_uri() . '/assets/css/gutenberg-styles.css', NULL, NULL, FALSE );
@@ -57,7 +67,6 @@ function kariboo_hec_add_comments_button_class( $argz ) {
 }
 add_action( 'comment_form_defaults', 'kariboo_hec_add_comments_button_class' );
 
-
 /* Hello Child theme back-end stuff */
 function kariboo_hec_scripts_admin() {
 
@@ -65,3 +74,119 @@ function kariboo_hec_scripts_admin() {
 
 }
 add_action( 'admin_enqueue_scripts', 'kariboo_hec_scripts_admin' );
+
+/* Hello Child theme Customizer stuff ----------------------------------------- */
+include_once( get_stylesheet_directory() . '/includes/hec_customizer.php' );
+/* how to apply Customizer settings ? ----------------------------------------- */
+function kariboo_hec_apply_customizer_styles() {
+
+	//wp_die( get_option( 'hec_butt' )[ 'def_button_text_color' ] );
+
+	// links
+	$link_color = get_option( 'hec_link' )[ 'hyperlink_color' ];
+	$link_color_hover = get_option( 'hec_link' )[ 'hyperlink_color_hover' ];
+	// titles
+	$title_link_color = get_option( 'hec_link' )[ 'title_hyperlink_color' ];
+	$title_link_color_hover = get_option( 'hec_link' )[ 'title_hyperlink_color_hover' ];
+	// buttons
+	$button_text_color = get_option( 'hec_butt' )[ 'def_button_text_color' ];
+	$button_bg_color = get_option( 'hec_butt' )[ 'def_button_bg_color' ];
+	$button_text_color_hover = get_option( 'hec_butt' )[ 'def_button_text_color_hover' ];
+	$button_bg_color_hover = get_option( 'hec_butt' )[ 'def_button_bg_color_hover' ];
+
+	// header styles
+	$css  = '';
+	// 1. regular links
+	$css .= '
+	body[class*="elementor-"] *:not(.menu-item):not(.elementor-tab-title):not(.elementor-image-box-title):not(.elementor-icon-box-title):not(.elementor-post__title):not(.elementor-heading-title) > a:not(:hover):not(:active):not(.elementor-item-active):not([role="button"]):not(.button):not(.elementor-button):not(.elementor-post__read-more):not(.elementor-post-info__terms-list-item), 
+	body[class*="elementor-"] .elementor-tab-title.elementor-active, 
+	body[class*="elementor-"] .elementor-post-info__terms-list-item, 
+	body[class*="elementor-"] .elementor-post__title, 
+	body[class*="elementor-"] .elementor-post__title a, 
+	body[class*="elementor-"] .elementor-heading-title a, 
+	body[class*="elementor-"] .elementor-post__read-more, 
+	body[class*="elementor-"] .elementor-image-box-title a, 
+	body[class*="elementor-"] .elementor-icon-box-title a {
+		color: ' . $link_color . ';
+	}';
+	$css .= '
+	body[class*="elementor-"] *:not(.menu-item):not(.elementor-tab-title):not(.elementor-image-box-title):not(.elementor-icon-box-title):not(.elementor-post__title):not(.elementor-heading-title) > a:hover:not(.elementor-item-active):not([role="button"]):not(.button):not(.elementor-button):not(.elementor-post__read-more):not(.elementor-post-info__terms-list-item), 
+	body[class*="elementor-"] .elementor-tab-title.elementor-active:hover, 
+	body[class*="elementor-"] .elementor-post-info__terms-list-item:hover, 
+	body[class*="elementor-"] .elementor-post__title:hover, 
+	body[class*="elementor-"] .elementor-post__title a:hover, 
+	body[class*="elementor-"] .elementor-heading-title a:hover, 
+	body[class*="elementor-"] .elementor-post__read-more:hover, 
+	body[class*="elementor-"] .elementor-image-box-title a:hover, 
+	body[class*="elementor-"] .elementor-icon-box-title a:hover, 
+	body[class*="elementor-"] *:not(.menu-item):not(.elementor-tab-title):not(.elementor-image-box-title):not(.elementor-icon-box-title):not(.elementor-post__title):not(.elementor-heading-title) > a:focus:not(.elementor-item-active):not([role="button"]):not(.button):not(.elementor-button):not(.elementor-post__read-more):not(.elementor-post-info__terms-list-item), 
+	body[class*="elementor-"] .elementor-tab-title.elementor-active:focus, 
+	body[class*="elementor-"] .elementor-post-info__terms-list-item:focus, 
+	body[class*="elementor-"] .elementor-post__title:focus, 
+	body[class*="elementor-"] .elementor-post__title a:focus, 
+	body[class*="elementor-"] .elementor-heading-title a:focus,
+	body[class*="elementor-"] .elementor-post__read-more:focus, 
+	body[class*="elementor-"] .elementor-image-box-title a:focus, 
+	body[class*="elementor-"] .elementor-icon-box-title a:focus {
+		color: ' . $link_color_hover . ';
+   }';
+   // 2. heading titles
+   $css .= '
+   body[class*="elementor-"] h1.elementor-heading-title a, 
+   body[class*="elementor-"] h2.elementor-heading-title a, 
+   body[class*="elementor-"] h3.elementor-heading-title a, 
+   body[class*="elementor-"] h4.elementor-heading-title a, 
+   body[class*="elementor-"] h5.elementor-heading-title a, 
+   body[class*="elementor-"] h6.elementor-heading-title a, 
+   body[class*="elementor-"] h1.elementor-heading-title a:visited, 
+   body[class*="elementor-"] h2.elementor-heading-title a:visited, 
+   body[class*="elementor-"] h3.elementor-heading-title a:visited, 
+   body[class*="elementor-"] h4.elementor-heading-title a:visited, 
+   body[class*="elementor-"] h5.elementor-heading-title a:visited, 
+   body[class*="elementor-"] h6.elementor-heading-title a:visited {
+		color: ' . $title_link_color . ';
+   }';
+   $css .= '
+   body[class*="elementor-"] h1.elementor-heading-title a:hover, 
+   body[class*="elementor-"] h2.elementor-heading-title a:hover, 
+   body[class*="elementor-"] h3.elementor-heading-title a:hover, 
+   body[class*="elementor-"] h4.elementor-heading-title a:hover, 
+   body[class*="elementor-"] h5.elementor-heading-title a:hover, 
+   body[class*="elementor-"] h6.elementor-heading-title a:hover, 
+   body[class*="elementor-"] h1.elementor-heading-title a:focus, 
+   body[class*="elementor-"] h2.elementor-heading-title a:focus, 
+   body[class*="elementor-"] h3.elementor-heading-title a:focus, 
+   body[class*="elementor-"] h4.elementor-heading-title a:focus, 
+   body[class*="elementor-"] h5.elementor-heading-title a:focus, 
+   body[class*="elementor-"] h6.elementor-heading-title a:focus {
+	color: ' . $title_link_color_hover . ';
+   }';
+   // 3. default buttons, a.k.a. buttons without styles
+   $css .= '
+   body[class*="elementor-"] .elementor-button, 
+   body[class*="elementor-"] [type="button"], 
+   body[class*="elementor-"] [type="submit"], 
+   body[class*="elementor-"] button, 
+   body[class*="elementor-"] .elementor-button:visited, 
+   body[class*="elementor-"] [type="button"]:visited, 
+   body[class*="elementor-"] [type="submit"]:visited, 
+   body[class*="elementor-"] button:visited {
+		color: ' . $button_text_color . ';
+		background-color: ' . $button_bg_color . ';
+   }';
+   $css .= '
+   body[class*="elementor-"] .elementor-button:hover, 
+   body[class*="elementor-"] [type="button"]:hover, 
+   body[class*="elementor-"] [type="submit"]:hover, 
+   body[class*="elementor-"] button:hover, 
+   body[class*="elementor-"] .elementor-button:focus, 
+   body[class*="elementor-"] [type="button"]:focus, 
+   body[class*="elementor-"] [type="submit"]:focus, 
+   body[class*="elementor-"] button:focus {
+		color: ' . $button_text_color_hover . ';
+		background-color: ' . $button_bg_color_hover . ';
+   }';
+
+	return wp_strip_all_tags( apply_filters( 'kariboo_hec_apply_customizer_styles', $css ) );
+
+}
