@@ -83,16 +83,16 @@ function kariboo_hec_apply_customizer_styles() {
 	//wp_die( get_option( 'hec_butt' )[ 'def_button_text_color' ] );
 
 	// links
-	$link_color = get_option( 'hec_link' )[ 'hyperlink_color' ];
-	$link_color_hover = get_option( 'hec_link' )[ 'hyperlink_color_hover' ];
+	$link_color = get_theme_mod( 'hyperlink_color', '#f27f6f' );
+	$link_color_hover = get_theme_mod( 'hyperlink_color_hover', '#000000' );
 	// titles
-	$title_link_color = get_option( 'hec_link' )[ 'title_hyperlink_color' ];
-	$title_link_color_hover = get_option( 'hec_link' )[ 'title_hyperlink_color_hover' ];
+	$title_link_color = get_theme_mod( 'title_hyperlink_color', '#000000' );
+	$title_link_color_hover = get_theme_mod( 'title_hyperlink_color_hover', '#f27f6f' );
 	// buttons
-	$button_text_color = get_option( 'hec_butt' )[ 'def_button_text_color' ];
-	$button_bg_color = get_option( 'hec_butt' )[ 'def_button_bg_color' ];
-	$button_text_color_hover = get_option( 'hec_butt' )[ 'def_button_text_color_hover' ];
-	$button_bg_color_hover = get_option( 'hec_butt' )[ 'def_button_bg_color_hover' ];
+	$button_text_color = get_theme_mod( 'def_button_text_color', '#FFFFFF' );
+	$button_bg_color = get_theme_mod( 'def_button_bg_color', '#f27f6f' );
+	$button_text_color_hover = get_theme_mod( 'def_button_text_color_hover', '#000000' );
+	$button_bg_color_hover = get_theme_mod( 'def_button_bg_color_hover', '#f5a46c' );
 
 	// header styles
 	$css  = '';

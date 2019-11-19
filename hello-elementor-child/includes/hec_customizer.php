@@ -30,7 +30,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#f27f6f',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod', 
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'hyperlink_color', array(
         'label'    => esc_attr__('Link Color', 'hello-elementor-child'),
@@ -42,7 +42,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#000000',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod', 
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'hyperlink_color_hover', array(
         'label'    => esc_attr__('Link Color - Hover', 'hello-elementor-child'),
@@ -54,7 +54,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#000000',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod',
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_hyperlink_color', array(
         'label'    => esc_attr__('Title Link Color', 'hello-elementor-child'),
@@ -66,7 +66,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#f27f6f',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod',
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_hyperlink_color_hover', array(
         'label'    => esc_attr__('Title Link Color - Hover', 'hello-elementor-child'),
@@ -78,7 +78,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#FFFFFF',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod',
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'def_button_text_color', array(
         'label'    => esc_attr__('Button Text Color', 'hello-elementor-child'),
@@ -90,7 +90,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#f27f6f',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod',
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'def_button_bg_color', array(
         'label'    => esc_attr__('Button Background Color', 'hello-elementor-child'),
@@ -102,7 +102,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#000000',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod',
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'def_button_text_color_hover', array(
         'label'    => esc_attr__('Button Text Color - Hover', 'hello-elementor-child'),
@@ -114,7 +114,7 @@ function kariboo_hec_customize_register( $wp_customize ) {
         'default'           => '#f5a46c',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
-        'type'              => 'option',
+        'type' => 'theme_mod',
     ));
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'def_button_bg_color_hover', array(
         'label'    => esc_attr__('Button Background Color - Hover', 'hello-elementor-child'),
