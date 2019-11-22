@@ -80,8 +80,6 @@ include_once( get_stylesheet_directory() . '/includes/hec_customizer.php' );
 /* how to apply Customizer settings ? ----------------------------------------- */
 function kariboo_hec_apply_customizer_styles() {
 
-	//wp_die( get_option( 'hec_butt' )[ 'def_button_text_color' ] );
-
 	// links
 	$link_color = get_theme_mod( 'hyperlink_color', '#f27f6f' );
 	$link_color_hover = get_theme_mod( 'hyperlink_color_hover', '#000000' );
